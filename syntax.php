@@ -181,14 +181,14 @@ class syntax_plugin_quickstats extends DokuWiki_Syntax_Plugin {
     
     # check if an alias ist set for a given ip in the configuration
     function getAlias($ip){
-		$list=explode(',',str_replace("\n","",str_replace("\r","",$this->getConf('ip_aliases'))));
-		foreach ($list as $item) {
-			$item=explode('=',$item);
-			# by using strpos it is possible to alias ranges of ips
-			if (strpos($ip,$item[0]) !== false) return (trim($item[1]));
-		}
-		return false;
-	}    
+	$list=explode(',',str_replace("\n","",str_replace("\r","",$this->getConf('ip_aliases'))));
+	foreach ($list as $item) {
+		$item=explode('=',$item);
+		# by using strpos it is possible to alias ranges of ips
+		if (strpos($ip,$item[0]) !== false) return (trim($item[1]));
+	}
+	return false;
+    }    
     
    /**
     * Handle the actual output creation.    
@@ -288,9 +288,9 @@ class syntax_plugin_quickstats extends DokuWiki_Syntax_Plugin {
         }
         # check for alias for a given ip
         if ($is_ip) {
-			$alias = $this->getAlias($name);
-			if ($alias !== false) $name = '<b>' . $this->getAlias($name). "</b> ($name)";
-		}
+		$alias = $this->getAlias($name);
+		if ($alias !== false) $name = '<b>' . $this->getAlias($name). "</b> ($name)";
+	}
         return "<tr><td>$num&nbsp;&nbsp;</td><td>$name</td><td>&nbsp;&nbsp;&nbsp;&nbsp;$val</td></tr>\n";
        
     }    
