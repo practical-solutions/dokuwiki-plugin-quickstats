@@ -15,5 +15,5 @@ $meta['hide_sidebar']=array('string');
 $meta['ajax']  = array('onoff');
 $meta['xcl_pages']  = array('string');
 $meta['by_pass_mmdb']  = array('onoff');
-
+$meta['ip_aliases'] = array('');
 
